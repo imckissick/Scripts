@@ -1,4 +1,2 @@
 # powershell
-Random Powershell Stuff 
-
-Testing
+Random Powershell Stuff
