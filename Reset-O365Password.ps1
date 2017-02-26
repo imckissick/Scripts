@@ -1,5 +1,7 @@
 param([string]$EmailAddress = "Email Address")
 
+Import-Module MSOnline
+
 Function Get-UserPassword {
     Do {
         Write-Host "Enter new password:"
@@ -12,8 +14,6 @@ Function Get-UserPassword {
 
     return $Password
 }
-
-Import-Module MSOnline
 
 $creds = Get-Credential
 Connect-MsolService -Credential $creds
