@@ -15,8 +15,12 @@ Function Get-UserPassword {
     return $Password
 }
 
-$creds = Get-Credential
-Connect-MsolService -Credential $creds
+try {
+    $creds = Get-Credential
+    Connect-MsolService -Credential $creds -ErrorAction Stop
+} catch {
+    Write-Host "Failed to connect to Office 365"
+}
 
 If((Get-MsolCompanyInformation).PasswordSynchronization) {
     write-host "DirSync is enabled, reset password on the Domain Controller"
@@ -25,7 +29,12 @@ If((Get-MsolCompanyInformation).PasswordSynchronization) {
 
 $Password = Get-UserPassword
 
-Set-MsolUserPassword `
-    -UserPrincipalName $EmailAddress `
-    -NewPassword $Password `
-    -ForceChangePassword $True
+try{
+    Set-MsolUserPassword `
+        -UserPrincipalName $EmailAddress `
+        -NewPassword $Password `
+        -ForceChangePassword $True `
+        -ErrorAction Stop
+} catch {
+    Write-Host "Failed to update password"
+}
