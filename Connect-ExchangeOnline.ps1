@@ -1,11 +1,12 @@
-# Note: After running this script, run Remove-PSSession $Session
-# The session will continue to run disconnect if it is not manually ended
+# Note: When finished with Exchange Online, close the session with Remove-PSSession
+# The session will continue to run disconnected if it is not manually closed
 
-Import-Module MsOnline
+Import-Module MSOnline
 
 $UserCredential = Get-Credential
+Connect-MsolService -credential $UserCredential
 
-$Global:Session = New-PSSession `
+Session = New-PSSession `
     -ConfigurationName Microsoft.Exchange `
     -ConnectionUri https://outlook.office365.com/powershell-liveid/ `
     -Credential $UserCredential `
@@ -13,5 +14,3 @@ $Global:Session = New-PSSession `
     -AllowRedirection
 
 Import-PSSession $Session
-
-Write-Host "When finished run 'Remove-PSSesion `$Session' to end the session"
