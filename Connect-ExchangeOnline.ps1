@@ -3,13 +3,13 @@
 
 Import-Module MSOnline
 
-$UserCredential = Get-Credential
-Connect-MsolService -credential $UserCredential
+$AdminCredential = Get-Credential
+Connect-MsolService -credential $AdminCredential
 
 $Session = New-PSSession `
     -ConfigurationName Microsoft.Exchange `
     -ConnectionUri https://outlook.office365.com/powershell-liveid/ `
-    -Credential $UserCredential `
+    -Credential $AdminCredential `
     -Authentication Basic `
     -AllowRedirection
 
