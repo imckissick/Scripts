@@ -1,14 +1,12 @@
 $O365Credential = $null
-
+$O365Tenant = $null
 $O365ExchangeSession = $null
 $O365SkypeSession = $null
 $O365SecuritySession = $null
 
 function Get-O365Credential {
     [CmdletBinding()]
-    param(
-
-    )
+    param()
 
     Begin {
 
@@ -26,7 +24,10 @@ function Get-O365Credential {
 function Connect-O365Exchange {
     [CmdletBinding()]
     param(
-
+        [ValidateNotNull()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty
     )
 
     Begin {
@@ -50,9 +51,7 @@ function Connect-O365Exchange {
 
 function Disconnect-O365Exchange {
     [CmdletBinding()]
-    param(
-
-    )
+    param()
 
     Begin {
         # Check for an existing O365Exchange session
@@ -71,7 +70,10 @@ function Disconnect-O365Exchange {
 function Connect-O365Skype {
     [CmdletBinding()]
     param(
-
+        [ValidateNotNull()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty
     )
 
     Begin {
@@ -90,9 +92,7 @@ function Connect-O365Skype {
 
 function Disconnect-O365Skype {
     [CmdletBinding()]
-    param(
-
-    )
+    param()
     
     Begin {
         # Check for an existing O365Skype session
@@ -112,7 +112,12 @@ function Disconnect-O365Skype {
 function Connect-O365Sharepoint {
     [CmdletBinding()]
     param(
-
+        [Parameter(Mandatory=$true)]
+        [String]$O365Tenant,
+        [ValidateNotNull()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty
     )
 
     Begin {
@@ -128,15 +133,14 @@ function Connect-O365Sharepoint {
 
 function Disconnect-O365Sharepoint {
     [CmdletBinding()]
-    param(
-
-    )
+    param()
 
     Begin {
 
     }
 
     Process {
+
     }
 
     End {
@@ -147,7 +151,10 @@ function Disconnect-O365Sharepoint {
 function Connect-O365SecurityAndCompliance {
     [CmdletBinding()]
     param(
-
+        [ValidateNotNull()]
+        [System.Management.Automation.PSCredential]
+        [System.Management.Automation.Credential()]
+        $Credential = [System.Management.Automation.PSCredential]::Empty
     )
 
     Begin {
@@ -191,9 +198,7 @@ function Disconnect-O365SecurityAndCompliance {
 
 function Install-O365Modules {
     [CmdletBinding()]
-    param(
-
-    )
+    param()
 
     Install-Module MSOnline
     Install-Module AzureAD
