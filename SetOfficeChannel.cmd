@@ -14,11 +14,11 @@ cls
 	)
 
 	echo.
-    echo.   You are not running as Administrator.
-    echo.
-    echo.   Please run this from an Elevated Command Prompt
-    echo.   Or Right-Click SetOfficeChannel.cmd and Select "Run as Administrator"
-    echo.
+	echo.   You are not running as Administrator.
+	echo.
+	echo.   Please run this from an Elevated Command Prompt
+	echo.   Or Right-Click SetOfficeChannel.cmd and Select "Run as Administrator"
+	echo.
 	echo.   Press any key to exit...
 	pause>nul
 goto :eof
@@ -28,7 +28,7 @@ goto :eof
 	cls
 	echo.
 	echo.Select new Office 365 Update Channel
-    echo.
+	echo.
 	echo.   1. Semi-Annual Channel
 	echo.   2. Semi-Annual Channel (Targeted)
 	echo.   3. Monthy Channel
@@ -70,10 +70,10 @@ goto :eof
 		echo.Invalid option.
 		echo.
 		echo.Press any key to continue . . .
-		
-        pause>nul
 
-        goto :printMenu
+		pause>nul
+
+		goto :printMenu
 	)
 
 	goto :updateChannel
@@ -85,14 +85,14 @@ goto :eof
 	cls
 	echo.
 	echo.Office 365 Update Channel has been set to: %channelname%
-    echo.
+	echo.
 
 	cd "C:\Program Files\Common Files\Microsoft Shared\ClickToRun"
-    start /wait OfficeC2RClient.exe /changesetting channel=%channel%	
+	start /wait OfficeC2RClient.exe /changesetting channel=%channel%	
 	start /wait OfficeC2RClient.exe /update user
 
 	echo.The most recent %channelname% build is being installed now
-    echo.
+	echo.
 	echo.Please reboot your computer after the installation completes
 	echo.
 	echo.This script will now exit. Press any key to close the window...
