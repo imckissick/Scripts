@@ -87,7 +87,7 @@ function Connect-O365Skype {
     
     End {
         Import-PSSession $O365SkypeSession
-    } 
+    }
 }
 
 function Disconnect-O365Skype {
