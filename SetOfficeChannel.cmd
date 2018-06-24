@@ -83,18 +83,23 @@ goto :eof
 :: This will call OfficeC2RClient.exe
 :updateChannel
 	cls
-	echo.
-	echo.Office 365 Update Channel has been set to: %channelname%
-	echo.
 
 	cd "C:\Program Files\Common Files\Microsoft Shared\ClickToRun"
-	start /wait OfficeC2RClient.exe /changesetting channel=%channel%	
+	start /wait OfficeC2RClient.exe /changesetting channel=%channel%
+	
+	echo.
+	echo.	The Office 365 Update Channel has been set to: %channelname%
+	echo.
+	
 	start /wait OfficeC2RClient.exe /update user
 
-	echo.The most recent %channelname% build is being installed now
+	echo.	Attempting to install most recent %channelname% build now
 	echo.
-	echo.Please reboot your computer after the installation completes
+	echo.	If the installation fails, please reboot your computer and try again
 	echo.
-	echo.This script will now exit. Press any key to close the window...
+	echo.	If the installation still fails after that, the update channel may be
+	echo.	explicity defined by your Office 365 Administrator
+	echo.
+	echo.	This script will now exit. Press any key to close the window...
 	pause>nul
 goto :eof
