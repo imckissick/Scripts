@@ -10,7 +10,7 @@ cls
 	openfiles>nul 2>&1
 
 	if %errorlevel% EQU 0 (
-		goto :printMenu
+		goto :ClearPrintSpooler
 	)
 
 	echo.
@@ -27,16 +27,19 @@ goto :eof
     echo.   Stopping the Print Spooler service
     echo.
     
-    start /wait net stop spooler
+    net stop spooler
     
     echo.   Clearing the Printer Spooler...
     echo.
 
-    start /wait del /f C:\Windows\System32\spool\PRINTERS\*
+    del /f /Q C:\Windows\System32\spool\PRINTERS\*
     
     echo.   Print Spooler has been cleared
     echo.
     echo.   Starting the Print Spooler service
-    
-    start /wait net start spooler
+    echo. 
+    net start spooler
+
+	echo.	"Press any key to exit..."
+	pause>nul
 goto :eof
