@@ -1,3 +1,12 @@
+:: Filename: SetOfficeChannel.cmd
+:: Author: Ian McKissick (ian@imckissick.com)
+:: Description: 
+::		Sets the update channel for Office 365 installs
+::		This is only applicable to: Office 365 Business and Office 365 ProPlus
+::		This will not work with home/consumer editions
+::
+::		Must be run as Admin
+
 @echo off
 title Set Office 365 Update Channel
 mode con cols=80 lines=32

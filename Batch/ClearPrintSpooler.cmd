@@ -1,3 +1,9 @@
+:: Filename: ClearPrintSpooler.cmd
+:: Author: Ian McKissick (ian@imckissick.com)
+:: Description:
+::		Clear the printer spooler
+::		Must be run as Admin
+
 @echo off
 title Clear Print Spooler
 mode con cols=80 lines=32
