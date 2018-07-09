@@ -4,23 +4,6 @@ $O365ExchangeSession = $null
 $O365SkypeSession = $null
 $O365SecuritySession = $null
 
-function Get-O365Credential {
-    [CmdletBinding()]
-    param()
-
-    Begin {
-
-    }
-    
-    Process {
-
-    }
-
-    End {
-
-    }
-}
-
 function Connect-O365Exchange {
     [CmdletBinding()]
     param(
@@ -81,6 +64,7 @@ function Connect-O365Skype {
         # Check for an existing O365Skype session
         # If session exists, prompt to disconnect current session
     }
+    
     Process {
         $O365SkypeSession = New-CsOnlineSession -Credential $O365Credential
     }
