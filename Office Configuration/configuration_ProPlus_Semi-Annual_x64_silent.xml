@@ -5,7 +5,7 @@
             <ExcludeApp ID="Groove"/>
         </Product>
     </Add>
-    <Updates Enabled="TRUE" Channel="Monthly"/>
+    <Updates Enabled="TRUE" Channel="Broad"/>
     <Display Level="Full" AcceptEULA="TRUE"/>
     <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
     <Property Name="SharedComputerLicensing" Value="0"/>
