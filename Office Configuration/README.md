@@ -7,7 +7,7 @@ The ODT can be downloaded from Microsoft [here](https://www.microsoft.com/en-us/
 For a typical install, you'd run the following from an elevated command prompt:
 
 ~~~ cmd
-> setup.exe /configure <configuration.xml>
+> setup.exe /configure <insert configuration XML file here
 ~~~
 
 If you just want to download, but not immediately install, run the following:
